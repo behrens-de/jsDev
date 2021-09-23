@@ -19,6 +19,16 @@ With this function the user can generate random numbers. The number range is fre
 ```` 
 randomNum({ quanty: 33, sort:'up', uniqe: true, max:50 });
 ```` 
-
+## Example Output
+```` 
+{
+    "error": false,
+    "numbers": {
+    "selected":[45,10,47,1,...3,8],
+    "notSelected": [4,7,11,...34,35,38,41]
+    },
+    "runs": 56
+}
+```` 
 
 

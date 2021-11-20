@@ -9,7 +9,7 @@ function randomNumber({ quanty = 1, sort = null, uniqe = true, min = 0, max = 99
         eCode = 101; // Error 101: angeforderte Anzahl größer als die differenz zwischen min und max Wert
     } else {
 
-        const numbs = [[],[]];   // Lerrer Array in den die zufälligen Nummern gespeichert werden
+        const numbs = [[], []];   // Lerrer Array in den die zufälligen Nummern gespeichert werden
 
         let runs = 0; // Hier werden die benötighten durchläufe gezählt
 
@@ -30,7 +30,7 @@ function randomNumber({ quanty = 1, sort = null, uniqe = true, min = 0, max = 99
         }
 
 
-        for(let i = min; i<max;i++){
+        for (let i = min; i < max; i++) {
             if (!numbs[0].includes(i)) {
                 numbs[1].push(i);
             }
@@ -38,8 +38,9 @@ function randomNumber({ quanty = 1, sort = null, uniqe = true, min = 0, max = 99
         }
 
         // Sortieren
-        if (sort === 'up') { numbs.sort((a, b) => a - b); } // Aufsteigend
-        if (sort === 'down') { numbs.sort((a, b) => b - a); } // Absteigend
+        if (sort === 'up') { numbs[0].sort((a, b) => a - b); } // Aufsteigend
+        if (sort === 'down') { numbs[0].sort((a, b) => b - a); } // Absteigend
+
 
         return {
             error: false,
@@ -57,3 +58,6 @@ function randomNumber({ quanty = 1, sort = null, uniqe = true, min = 0, max = 99
     }
     //return numbs;
 }
+
+//Demo
+console.log(randomNumber({quanty:20, sort:'up'}).numbers.selected);

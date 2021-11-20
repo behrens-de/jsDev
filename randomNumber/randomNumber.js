@@ -1,22 +1,22 @@
 /**
  * JP BEHRENS - RandomNumber
  */
-function randomNumber({ quanty = 1, sort = null, uniqe = true, min = 0, max = 99 }) {
+ function randomNumber({ quanty = 1, sort = null, uniqe = true, min = 0, max = 99 }) {
 
     let eCode;
 
     if (quanty > (max - min)) {
-        eCode = 101; // Error 101: angeforderte Anzahl größer als die differenz zwischen min und max Wert
+        eCode = 101; // Error 101: desired number greater than the difference between min and max value
     } else {
 
-        const numbs = [[], []];   // Lerrer Array in den die zufälligen Nummern gespeichert werden
+        const numbs = [[], []];   // Empty array in which the random numbers are stored
 
-        let runs = 0; // Hier werden die benötighten durchläufe gezählt
+        let loops = 0; // Here the required loops are counted
 
         while (numbs[0].length < quanty) {
-            // Erzrugt eine zufällige Zahl von Min bis Max
+            // Generates a random number from min to max
             const randNum = Math.floor(Math.random() * (max - min) + min);
-            // Wenn die nummern uniqe sein sollen
+            // If the numbers are to be unique
             if (uniqe) {
                 if (!numbs[0].includes(randNum)) {
                     numbs[0].push(randNum);
@@ -24,9 +24,8 @@ function randomNumber({ quanty = 1, sort = null, uniqe = true, min = 0, max = 99
             } else {
                 numbs[0].push(randNum);
             }
-
-            // Durchläufe werden hochgezäghlt
-            runs++;
+            // loops are counted up
+            loops++;
         }
 
 
@@ -37,9 +36,9 @@ function randomNumber({ quanty = 1, sort = null, uniqe = true, min = 0, max = 99
 
         }
 
-        // Sortieren
-        if (sort === 'up') { numbs[0].sort((a, b) => a - b); } // Aufsteigend
-        if (sort === 'down') { numbs[0].sort((a, b) => b - a); } // Absteigend
+        // Sorting
+        if (sort === 'up') { numbs[0].sort((a, b) => a - b); } // Ascending
+        if (sort === 'down') { numbs[0].sort((a, b) => b - a); } // Descending
 
 
         return {
@@ -60,4 +59,4 @@ function randomNumber({ quanty = 1, sort = null, uniqe = true, min = 0, max = 99
 }
 
 //Demo
-console.log(randomNumber({quanty:20, sort:'up'}).numbers.selected);
+console.log(randomNumber({ quanty: 20, sort: 'up' }).numbers.selected);
